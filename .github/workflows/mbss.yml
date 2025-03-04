@@ -32,6 +32,11 @@ jobs:
           Invoke-WebRequest -Uri $downloadUrl -OutFile C:\mbss\mbss-strip.exe
         shell: pwsh
 
+      - name: Setup dotnet
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 7.0.x
+
       - name: Run MBSS
         run: .\mbss-strip.exe
         working-directory: C:\mbss
